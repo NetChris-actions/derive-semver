@@ -18,15 +18,15 @@ jobs:
       - name: Output full match
         run: echo ${{ steps.parse.outputs.semVer }}
       - name: Output major
-        run: echo ${{ steps.parse.outputs.semVerMajor }}
+        run: echo ${{ steps.parse.outputs.majorVersion }}
       - name: Output minor
-        run: echo ${{ steps.parse.outputs.semVerMinor }}
+        run: echo ${{ steps.parse.outputs.minorVersion }}
       - name: Output patch
-        run: echo ${{ steps.parse.outputs.semVerPatch }}
+        run: echo ${{ steps.parse.outputs.patchVersion }}
       - name: Output prerelease
-        run: echo ${{ steps.parse.outputs.semVerPreRelease }}
+        run: echo ${{ steps.parse.outputs.preReleaseVersion }}
       - name: Output buildmetadata
-        run: echo ${{ steps.parse.outputs.semVerBuildMetadata }}
+        run: echo ${{ steps.parse.outputs.buildMetadata }}
       - name: Output majorMinorOnly
         run: echo ${{ steps.parse.outputs.majorMinorOnly }}
 ```
