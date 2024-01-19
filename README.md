@@ -1,6 +1,6 @@
-# Parse SemVer versions
+# Derive SemVer version from git ref
 
-Use this action to parse an input string as a SemVer version.  Internally, this uses [`pcre2grep`](https://www.pcre.org/current/doc/html/pcre2grep.html) and [the official SemVer.org RegEx](https://semver.org/#is-there-a-suggested-regular-expression-regex-to-check-a-semver-string) to match values.
+Use this action to derive the SemVer version from `GITHUB_REF_NAME`.  Internally, this uses [`pcre2grep`](https://www.pcre.org/current/doc/html/pcre2grep.html) and [the official SemVer.org RegEx](https://semver.org/#is-there-a-suggested-regular-expression-regex-to-check-a-semver-string) to match values.
 
 ``` yml
 name: Simplistic Example
@@ -14,9 +14,7 @@ jobs:
     steps:
       - name: SemVer parse
         id: parse
-        uses: NetChris-actions/parse-semver@v1
-        with:
-          parseValue: 'v1.2.3'
+        uses: NetChris-actions/derive-semver@v1
       - name: Output full match
         run: echo ${{ steps.parse.outputs.semVer }}
       - name: Output major
