@@ -1,22 +1,17 @@
-# action.yml
-name: 'SemVer 2 Parse'
-description: 'Greet someone and record the time'
-inputs:
-  parseValue:  # id of input
-    description: 'Value to parse'
-    required: true
+name: 'Derive SemVer 2'
+description: 'Derives a SemVer 2 version from GITHUB_REF_NAME'
 outputs:
   semVer: # id of output
     description: 'The fully matched version'
-  semVerMajor: # id of output
+  majorVersion: # id of output
     description: 'The major version'
-  semVerMinor: # id of output
+  minorVersion: # id of output
     description: 'The minor version'
-  semVerPatch: # id of output
+  patchVersion: # id of output
     description: 'The patch version'
-  semVerPreRelease: # id of output
+  preReleaseVersion: # id of output
     description: 'The pre-release version'
-  semVerBuildMetadata: # id of output
+  buildMetadata: # id of output
     description: 'The build metadata'
   majorMinorOnly: # id of output
     description: 'Returns any matching MajorVersion.MinorVersion pattern whether the input is valid SemVer or not.  Useful for development releases whee patch and prerelease values will be provided programmatically.'
@@ -24,4 +19,4 @@ runs:
   using: 'docker'
   image: 'Dockerfile'
   args:
-    - ${{ inputs.parseValue }}
+    - ${GITHUB_REF_NAME}
