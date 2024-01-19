@@ -1,10 +1,5 @@
-# action.yml
-name: 'SemVer 2 Parse'
-description: 'Greet someone and record the time'
-inputs:
-  parseValue:  # id of input
-    description: 'Value to parse'
-    required: true
+name: 'Derive SemVer 2'
+description: 'Derives a SemVer 2 version from GITHUB_REF_NAME'
 outputs:
   semVer: # id of output
     description: 'The fully matched version'
@@ -24,4 +19,4 @@ runs:
   using: 'docker'
   image: 'Dockerfile'
   args:
-    - ${{ inputs.parseValue }}
+    - ${GITHUB_REF_NAME}
